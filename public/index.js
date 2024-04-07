@@ -1,9 +1,11 @@
-const socket = io(`ws://localhost:3000`);
+$(document).ready(function() {
+    const socket = io.connect('http://localhost:3000');
 
-socket.on('connect', () => {
-    console.log('Connected to server');
-})
+    socket.on('connect', function() {
+        console.log('Connected to server');
+    });
 
-socket.on('map', (map) => {
-    console.log(map);
-})
+    socket.on('map', function(map) {
+        console.log(map);
+    });
+});
