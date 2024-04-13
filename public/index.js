@@ -38,30 +38,63 @@ const inputs = {
 };
 
 window.addEventListener('keydown', (event) => {
-    if (event.key === "w") {
-        inputs["up"] = true;
-      } else if (event.key === "s") {
-        inputs["down"] = true;
-      } else if (event.key === "d") {
-        inputs["right"] = true;
-      } else if (event.key === "a") {
-        inputs["left"] = true;
-    }
+
+  switch (event.key) {
+    case "w":
+      inputs["up"] = true;
+      break;
+    case "s":
+      inputs["down"] = true;
+      break;
+    case "d":
+      inputs["right"] = true;
+      break;
+    case "a":
+      inputs["left"] = true;
+      break;
+  }
+    // if (event.key === "w") {
+    //     inputs["up"] = true;
+    //   } else if (event.key === "s") {
+    //     inputs["down"] = true;
+    //   } else if (event.key === "d") {
+    //     inputs["right"] = true;
+    //   } else if (event.key === "a") {
+    //     inputs["left"] = true;
+    // }
 
     socket.emit('input', inputs);
 
 });
 
 window.addEventListener('keyup', (event) => {
-    if (event.key === "w") {
-        inputs["up"] = false;
-      } else if (event.key === "s") {
-        inputs["down"] = false;
-      } else if (event.key === "d") {
-        inputs["right"] = false;
-      } else if (event.key === "a") {
-        inputs["left"] = false;
-      }
+
+  switch (event.key) {
+    case "w":
+      inputs["up"] = false;
+      break;
+    case "s":
+      inputs["down"] = false;
+      break;
+    case "d":
+      inputs["right"] = false;
+      break;
+    case "a":
+      inputs["left"] = false;
+      break;
+  }
+
+
+  
+    // if (event.key === "w") {
+    //     inputs["up"] = false;
+    //   } else if (event.key === "s") {
+    //     inputs["down"] = false;
+    //   } else if (event.key === "d") {
+    //     inputs["right"] = false;
+    //   } else if (event.key === "a") {
+    //     inputs["left"] = false;
+    //   }
     socket.emit('input', inputs);
 });
 
